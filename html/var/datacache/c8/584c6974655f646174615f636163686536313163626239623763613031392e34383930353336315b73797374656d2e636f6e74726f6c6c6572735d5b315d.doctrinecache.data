@@ -1,0 +1,2 @@
+0
+a:6:{s:21:"Admin.CacheManagement";s:38:"XLite\Controller\Admin\CacheManagement";s:16:"Admin.Storefront";s:33:"XLite\Controller\Admin\Storefront";s:18:"Admin.SearchRouter";s:35:"XLite\Controller\Admin\SearchRouter";s:11:"Admin.Login";s:28:"XLite\Controller\Admin\Login";s:15:"Admin.OrderList";s:32:"XLite\Controller\Admin\OrderList";s:17:"Admin.Marketplace";s:34:"XLite\Controller\Admin\Marketplace";}

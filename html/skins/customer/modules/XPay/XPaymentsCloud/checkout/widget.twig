@@ -1,0 +1,34 @@
+{##
+ # Connect widget
+ #
+ #}
+<div id="xpayments-iframe-container"></div>
+<script>
+  var xpaymentsWidgetConfig = {
+    account: '{{ this.getXpaymentsMethod().getSetting('account') }}',
+    widgetKey: '{{ this.getXpaymentsMethod().getSetting('widget_key') }}',
+    container: '#xpayments-iframe-container',
+    form: 'form.place',
+    showSaveCard: {% if this.isHideSaveCardCheckbox() %}false{% else %}true{% endif %},
+    customerId: '{{ this.getXpaymentsCustomerId() }}',
+    order: {
+      total: '{{ this.getCart().getTotal() }}',
+      currency: '{{ this.getCart().getCurrency().getCode() }}'
+    },
+    company: {
+      name: '{{ this.config.Company.company_name }}',
+      countryCode: '{{ this.config.Company.location_country }}',
+    },
+    language: '{{ this.getCurrentLanguage().getCode() }}',
+    applePay: {
+      requiredShippingFields: [],
+      requiredBillingFields: [],
+      shippingMethods: []
+    },
+  }
+  var xpaymentsWidgetWrapperConfig = {
+    fastLaneCheckout: {% if 'fast-lane' == this.config.General.checkout_type %}1{% else %}0{% endif %},
+    applePaySelected: {% if this.isXpaymentsApplePaySelected() %}1{% else %}0{% endif %},
+  }
+</script>
+

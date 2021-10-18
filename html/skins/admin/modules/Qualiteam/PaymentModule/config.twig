@@ -1,0 +1,42 @@
+{##
+ # Crdlink configuration page
+#}
+
+<table cellspacing="1" cellpadding="5" class="settings-table">
+
+    <tr>
+        <td class="setting-name">
+            <label for="settings_mid">{{ t('Merchant ID') }}</label>
+        </td>
+        <td>
+            <input type="text" id="settings_mid" name="settings[mid]" value="{{ this.paymentMethod.getSetting('mid') }}" class="validate[required,maxSize[255]]" />
+        </td>
+    </tr>
+
+    <tr>
+        <td class="setting-name">
+            <label for="settings_sharedSecret">{{ t('Shared Secret') }}</label>
+        </td>
+        <td>
+            <input type="text" id="settings_sharedSecret" name="settings[sharedSecret]" value="{{ this.paymentMethod.getSetting('sharedSecret') }}" class="validate[required]" />
+        </td>
+    </tr>
+
+    <tr>
+        <td class="setting-name">
+            <label for="settings_prefix">{{ t('Invoice number prefix') }}</label>
+        </td>
+        <td>
+            <input type="text" id="settings_prefix" value="{{ this.paymentMethod.getSetting('prefix') }}" name="settings[prefix]" />
+        </td>
+    </tr>
+
+    <tr>
+        <td class="setting-name">
+            <label for="settings_test">{{ t('Test/Live mode') }}</label>
+        </td>
+        <td>
+            {{ widget('\\XLite\\View\\FormField\\Select\\TestLiveMode', fieldId='settings_mode', fieldName='settings[mode]', fieldOnly='true', value=this.paymentMethod.getSetting('mode')) }}
+        </td>
+    </tr>
+</table>

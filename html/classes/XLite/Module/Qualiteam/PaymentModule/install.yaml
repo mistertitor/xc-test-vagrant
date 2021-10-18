@@ -1,0 +1,28 @@
+# vim: set ts=2 sw=2 sts=2 et:
+#
+# Fixtures
+#
+# Copyright (c) 2011-present Qualiteam software Ltd. All rights reserved.
+# See https://www.x-cart.com/license-agreement.html for license details.
+
+XLite\Model\Payment\Method:
+  - service_name: XCartPaymentModule
+    class: Module\Qualiteam\PaymentModule\Model\Payment\Processor\CardLink
+    type: C
+    orderby: -10000
+    countries: [US]
+    translations:
+      - code: en
+        name: XCart Payment Module (CardLink)
+    settings:
+      - name: mid
+      - name: prefix
+        value: xcart
+      - name: sharedSecret
+      - name: mode
+        value: test
+
+XLite\Model\LanguageLabel:
+  - { name: 'Invoice number prefix', translations: [{ code: en, label: 'Invoice number prefix' }] }
+  - { name: 'Shared Secret', translations: [{ code: en, label: 'Shared Secret' }] }
+  - { name: 'Merchant ID', translations: [{ code: en, label: 'Merchant ID' }] }

@@ -1,0 +1,11 @@
+version: 5.4.0.0
+type: payment
+authorName: Qualiteam
+moduleName: 'X-Cart Payment Module (Card Link)'
+description: 'Task #000002: This module is an example of simple Payment Gateway integration (Card Link)'
+minorRequiredCoreVersion: 0
+dependsOn: {  }
+incompatibleWith: {  }
+skins: {  }
+showSettingsForm: false
+canDisable: true
