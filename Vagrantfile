@@ -11,13 +11,14 @@ Vagrant.configure("2") do |config|
         v.cpus = 1
     end
     config.vm.synced_folder ".", "/var/www", :mount_options => ["dmode=777", "fmode=666"]
-    config.vm.synced_folder "./mysql", "/var/lib/mysql", id: "mysql", :mount_options => ["dmode=777", "fmode=666"]
+    #config.vm.synced_folder "./mysql", "/var/lib/mysql", id: "mysql", :mount_options => ["dmode=777", "fmode=666"]
     config.vm.provision "shell", path: "bootstrap.sh"
     config.vm.provision "shell", :run => 'always', inline: <<-SHELL
         
         echo -e "\n--- Avvia MySQL ---\n"
         sudo service mysql start
-        
+        sudo mysql xcart54 < /var/www/html/seed/seed.sql
+
     SHELL
 
 end

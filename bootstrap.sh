@@ -46,14 +46,16 @@ echo "${VHOST}" > /etc/apache2/sites-available/000-default.conf
 
 echo -e "\n--- Crea index.php ---\n"
 sudo rm /var/www/html/index.html
-sudo touch /var/www/html/index.php
-echo "<?php phpinfo(); ?>" > /var/www/html/index.php
 
 echo -e "\n--- Attiva mod_rewrite ---\n"
 sudo a2enmod rewrite
 
 echo -e "\n--- Restart Apache ---\n"
 sudo service apache2 restart
+
+echo -e "\n--- Create Database ---\n"
+sudo mysql -e "CREATE DATABASE xcart54"
+sudo mysql -e "CREATE USER xc_user@'localhost' IDENTIFIED BY 'secret';GRANT ALL PRIVILEGES ON xcart54.* TO xc_user@localhost"
 
 echo -e "\n--- Ferma MySQL ---\n"
 sudo /etc/init.d/mysql stop
